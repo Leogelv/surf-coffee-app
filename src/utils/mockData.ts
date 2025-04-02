@@ -49,12 +49,12 @@ export const syrupModifier: ProductModifier = {
 };
 
 export const categories: Category[] = [
-  { id: 'coffee', name: 'Кофе' },
-  { id: 'tea', name: 'Чай' },
-  { id: 'pizza', name: 'Пицца' },
-  { id: 'sandwiches', name: 'Сэндвичи & Панини' },
-  { id: 'desserts', name: 'Десерты' },
-  { id: 'signature', name: 'Фирменные напитки' },
+  { id: 'coffee', name: 'Кофе', imageUrl: '/assets/images/category-coffee.jpg' },
+  { id: 'tea', name: 'Чай', imageUrl: '/assets/images/category-tea.jpg' },
+  { id: 'pizza', name: 'Пицца', imageUrl: '/assets/images/category-pizza.jpg' },
+  { id: 'sandwiches', name: 'Сэндвичи & Панини', imageUrl: '/assets/images/category-sandwiches.jpg' },
+  { id: 'desserts', name: 'Десерты', imageUrl: '/assets/images/category-desserts.jpg' },
+  { id: 'signature', name: 'Фирменные напитки', imageUrl: '/assets/images/category-signature.jpg' },
 ];
 
 export const products: Product[] = [

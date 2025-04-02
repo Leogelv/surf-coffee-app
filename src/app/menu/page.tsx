@@ -40,14 +40,18 @@ export default function MenuPage() {
                   className="flex-shrink-0 w-28 rounded-lg overflow-hidden bg-gray-100 border border-gray-200"
                 >
                   <a href={`#${category.id}`} className="block">
-                    <div className="h-24 bg-gray-200 relative">
-                      {category.imageUrl && (
+                    <div className="h-24 bg-gray-200 relative flex items-center justify-center">
+                      {category.imageUrl ? (
                         <Image
                           src={category.imageUrl}
                           alt={category.name}
                           fill
                           className="object-cover"
                         />
+                      ) : (
+                        <div className="text-center text-gray-500 px-2">
+                          {category.name}
+                        </div>
                       )}
                     </div>
                     <div className="p-2">

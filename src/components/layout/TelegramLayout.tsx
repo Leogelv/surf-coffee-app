@@ -2,6 +2,7 @@
 
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTelegram } from '@/hooks/useTelegram';
 
 interface TelegramLayoutProps {
   children: ReactNode;
@@ -16,37 +17,8 @@ const TelegramLayout: React.FC<TelegramLayoutProps> = ({
   topPadding = 100,
   fullWidth = true,
 }) => {
-  const [isInTelegram, setIsInTelegram] = useState(false);
+  const { isInTelegram } = useTelegram();
   const containerRef = useRef<HTMLDivElement>(null);
-
-  // Проверка окружения и подключение к Telegram WebApp только на клиенте
-  useEffect(() => {
-    try {
-      // Проверка на наличие объекта window (запускаться только на клиенте)
-      if (typeof window !== 'undefined') {
-        // Проверка, запущено ли приложение в Telegram WebApp
-        const telegramWebApp = (window as any).Telegram?.WebApp;
-        
-        if (telegramWebApp) {
-          setIsInTelegram(true);
-          
-          // Инициализация WebApp
-          telegramWebApp.ready();
-          
-          // Настройка внешнего вида WebApp
-          telegramWebApp.setHeaderColor('#0056B3');
-          telegramWebApp.enableClosingConfirmation();
-          
-          // Раскрываем приложение на весь экран
-          if (telegramWebApp.expand) {
-            telegramWebApp.expand();
-          }
-        }
-      }
-    } catch (error) {
-      console.error('Error initializing Telegram WebApp:', error);
-    }
-  }, []);
 
   // Обработка вертикальных свайпов только на клиенте
   useEffect(() => {

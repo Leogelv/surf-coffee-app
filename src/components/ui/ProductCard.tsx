@@ -25,8 +25,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onPress }) =>
       tabIndex={0}
     >
       {/* Изображение продукта */}
-      <div className="w-24 h-24 bg-gray-200 relative flex-shrink-0">
-        {product.imageUrl && (
+      <div className="w-24 h-24 bg-gray-200 relative flex-shrink-0 flex items-center justify-center">
+        {product.imageUrl ? (
           <Image
             src={product.imageUrl}
             alt={product.name}
@@ -35,9 +35,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onPress }) =>
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAEDQIHXv7SlwAAAABJRU5ErkJggg=="
           />
+        ) : (
+          <div className="text-gray-400 text-xs text-center">Нет фото</div>
         )}
         {product.popular && (
-          <div className="absolute top-1 left-1 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-sm font-medium">
+          <div className="absolute top-1 left-1 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-sm font-medium z-10">
             Хит
           </div>
         )}
